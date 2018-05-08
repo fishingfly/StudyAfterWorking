@@ -1,0 +1,1 @@
+运行：直接运行App.java即可。run->run as->java application
