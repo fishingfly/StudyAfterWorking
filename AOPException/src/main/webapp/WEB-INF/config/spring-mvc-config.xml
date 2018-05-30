@@ -11,7 +11,6 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
-
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -23,5 +22,11 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-    <bean class="com.zy.test.config.ExceptionConfig"/>
+	<!--  
+	 <bean class="com.zy.test.config.ExceptionConfig"/>
+	-->
+       <!-- 这里的配置可以通过 com.zy.test.config.ExceptionConfig这个注解类来完成 -->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+    <bean class="com.zy.test.aspect.WebExceptionAspect" scope="singleton"/> 
+   
 </beans>
